@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socket.IO Example</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on('oddVisitorCount', (count) => {
+      document.getElementById('visitorCount').innerText = `Odd visitor count: ${count}`;
+    });
+  </script>
+</head>
+<body>
+  <h1>Socket.IO Example</h1>
+  <p id="visitorCount"></p>
+</body>
+</html>
