@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Values</title>
+</head>
+<body>
+  <label for="search-input">Search:</label>
+  <input type="text" id="search-input">
+  <button id="search-button">Search</button>
+
+  <ul id="result-list"></ul>
+
+  <script>
+    const searchButton = document.getElementById('search-button');
+    searchButton.addEventListener('click', () => {
+      const searchInput = document.getElementById('search-input').value;
+      const request = new XMLHttpRequest();
+      request.onreadystatechange = () => {
+        if (request.readyState === 4 && request.status === 200) {
+          const resultList = document.getElementById('result-list');
+          resultList.innerHTML = '';
+          const values = JSON.parse(request.responseText);
+          for (const value of values) {
+            const li = document.createElement('li');
+            li.innerText = value;
+            resultList.appendChild(li);
+          }
+        }
+      };
+      request.open('GET', `/search?query=${searchInput}`);
+      request.send();
+    });
+  </script>
+</body>
+</html>

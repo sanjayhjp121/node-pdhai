@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sort Values</title>
+</head>
+<body>
+  <label for="values">Enter comma-separated values:</label>
+  <input type="text" id="values">
+  <button id="sort">Sort</button>
+  <p id="result"></p>
+  <script>
+    const sortBtn = document.getElementById('sort');
+    sortBtn.addEventListener('click', () => {
+      const values = document.getElementById('values').value;
+      const request = new XMLHttpRequest();
+      request.onreadystatechange = () => {
+        if (request.readyState === 4 && request.status === 200) {
+          const result = document.getElementById('result');
+          result.innerText = request.responseText;
+        }
+      };
+      request.open('POST', '/sort');
+      request.send(values);
+    });
+  </script>
+</body>
+</html>
