@@ -1451,3 +1451,27 @@
 //     rl.close();
 //   });
 // });
+
+
+
+
+
+// using middle ware calculate the square of a number in node js
+
+// const express = require('express');
+// const app = express();
+
+// function square(req, res, next) {
+//   const number = req.params.number;
+//   const squared = Math.pow(number, 2);
+//   req.squared = squared;
+//   next();
+// }
+
+// app.get('/square/:2', square, function(req, res) {
+//   res.send('The square of ' + req.params.number + ' is ' + req.squared);
+// });
+
+// app.listen(3000, function() {
+//   console.log('Server listening on port 3000');
+// });
