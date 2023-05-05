@@ -1333,4 +1333,121 @@
 
 
 
+// Q. Create a buffer write some data and then read that data and display the content
 
+
+// // Create a buffer with a specified size
+// const bufferSize = 256;
+// const buffer = Buffer.alloc(bufferSize);
+
+// // Write some data to the buffer
+// const dataToWrite = "Hello, world!";
+// const bytesWritten = buffer.write(dataToWrite);
+
+// console.log(`Wrote ${bytesWritten} bytes to the buffer.`);
+
+// // Read the data from the buffer and display the content
+// const dataRead = buffer.toString('utf-8', 0, bytesWritten);
+// console.log(`Read from buffer: ${dataRead}`);
+
+
+
+
+// Q. Write a program using socket to send “wow server” message from client to the server after ever 2 second but after 12 seconds the client must stop sending this wow server message to the server.AFger waiting for another 5 seconds the client again must start sending the message to the server
+
+// const net = require('net');
+
+// const server = net.createServer((socket) => {
+//   console.log('Client connected.');
+
+//   socket.on('data', (data) => {
+//     console.log(`Received: ${data}`);
+//   });
+
+//   socket.on('end', () => {
+//     console.log('Client disconnected.');
+//   });
+// });
+
+// const port = 3000;
+// server.listen(port, () => {
+//   console.log(`Server listening on port ${port}`);
+// });
+
+
+
+
+// Q. create a nodejs application that takes a number n as a user Input
+// and calculates the sum of n natural numbers and stores the result in a file "result.txt"
+// which already exists. Also, "Success" message get printed on console  in case of success and "Error occured"
+// gets displayed on console if any error occurs.
+
+
+// const fs = require('fs');
+// const prompt = require('prompt');
+
+// // Start the prompt
+// prompt.start();
+
+// // Prompt the user for input
+// prompt.get(['Enter a number (n):'], (err, result) => {
+//   if (err) {
+//     console.error('Error occurred:', err);
+//     return;
+//   }
+
+//   const n = parseInt(result['Enter a number (n):']);
+
+//   if (isNaN(n)) {
+//     console.error('Invalid input. Please enter a number.');
+//     return;
+//   }
+
+//   // Calculate the sum of n natural numbers
+//   const sum = (n * (n + 1)) / 2;
+
+//   // Write the result to 'result.txt'
+//   fs.writeFile('result.txt', sum.toString(), (err) => {
+//     if (err) {
+//       console.error('Error occurred:', err);
+//     } else {
+//       console.log('Success');
+//     }
+//   });
+// });
+
+
+
+// Way 2 :-
+
+// const fs = require('fs');
+// const readline = require('readline');
+
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
+
+// // Prompt the user for input
+// rl.question('Enter a number (n): ', (input) => {
+//   const n = parseInt(input);
+
+//   if (isNaN(n)) {
+//     console.error('Invalid input. Please enter a number.');
+//     rl.close();
+//     return;
+//   }
+
+//   // Calculate the sum of n natural numbers
+//   const sum = (n * (n + 1)) / 2;
+
+//   // Write the result to the existing 'result.txt'
+//   fs.writeFile('result.txt', sum.toString(), (err) => {
+//     if (err) {
+//       console.error('Error occurred:', err);
+//     } else {
+//       console.log('Success');
+//     }
+//     rl.close();
+//   });
+// });
